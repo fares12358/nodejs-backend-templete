@@ -1,0 +1,24 @@
+# Node modules
+node_modules/
+
+# dotenv environment variables
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Debug cache
+.vscode/
+*.swp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Optional build outputs (if you later use TypeScript or Babel)
+dist/
+build/
