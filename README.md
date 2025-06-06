@@ -20,12 +20,11 @@ Just install it, set your environment variables, and start coding.
 
 This template is continuously maintained and released in versions. Each version includes new features. Choose the version that fits your project:
 
-| Version  | Features Included                                                                 |
-|----------|------------------------------------------------------------------------------------|
+| Version  | Features Included                                                                   |
+|----------|-------------------------------------------------------------------------------------|
 | v1.0.0   | ✅ Express server<br>✅ MongoDB connection<br>✅ `.env` support<br>✅ CORS config |
 | v1.0.1   | 🔼 Adds authentication (JWT-based login/register)<br>🔼 Centralized error handling |
-| v1.0.2   | 🔼 Adds file uploads using `multer`<br>🔼 Validations using `express-validator`     |
-
+| v1.0.2   | 🔼 Adds file uploads using `multer`<br>🔼 Validations using `express-validator`    |
 
 ---
 
@@ -34,7 +33,10 @@ This template is continuously maintained and released in versions. Each version 
 To use a specific version of the template, you can reference a tag like this:
 
 bash
-npx degit fares12358/nodejs-backend-templet#v1.0.0 my-app
+npx degit fares12358/nodejs-backend-templete#v1.0.0 my-app
+cd your-project-name
+npm install
+npm run dev
 
 ---
 
@@ -95,6 +97,7 @@ FRONT_BASE_URL=http://localhost:3000
 ---
 
 ## 🧪 Version Notes – v1.0.0
+
 Express server set up
 
 MongoDB connection with Mongoose (src/config/db.js)
