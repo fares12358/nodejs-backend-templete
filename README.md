@@ -32,20 +32,19 @@ This template is continuously maintained and released in versions. Each version 
 
 To use a specific version of the template, you can reference a tag like this:
 
-bash
-npx degit fares12358/nodejs-backend-templete#v1.0.0 my-app
-cd your-project-name
-npm install
-npm run dev
+- npx degit fares12358/nodejs-backend-templete#v1.0.0 my-app
+- cd your-project-name
+- npm install
+- npm run dev
 
 ---
 
 ## 🛠️ Create a new project using this template:
 
-npx degit fares12358/nodejs-backend-templete your-project-name
-cd your-project-name
-npm install
-npm run dev
+- npx degit fares12358/nodejs-backend-templete your-project-name
+- cd your-project-name
+- npm install
+- npm run dev
 
 ---
 
@@ -67,23 +66,23 @@ npm run dev
 
 ## 📁 Folder Structure
 
-src/
-├── config/
-│ └── db.js # MongoDB connection logic using MONGO_URI from .env
-│
-├── controllers/
-│ └── exampleController.js # Sample controller logic
-│
-├── middleware/
-│ └── exampleMiddleware.js # Add custom middleware here
-│
-├── models/
-│ └── exampleModel.js # Mongoose schemas/models
-│
-├── routes/
-│ └── exampleRoutes.js # All API route definitions
-│
-└── server.js # App entry point, initializes express app and DB connection
+src/<br>
+├── config/<br>
+│ └── db.js # MongoDB connection logic using MONGO_URI from .env<br>
+│<br>
+├── controllers/<br>
+│ └── exampleController.js # Sample controller logic<br>
+│<br>
+├── middleware/<br>
+│ └── exampleMiddleware.js # Add custom middleware here<br>
+│<br>
+├── models/<br>
+│ └── exampleModel.js # Mongoose schemas/models<br>
+│<br>
+├── routes/<br>
+│ └── exampleRoutes.js # All API route definitions<br>
+│<br>
+└── server.js # App entry point, initializes express app and DB connection<br>
 
 ---
 
@@ -91,8 +90,8 @@ src/
 
 Create a `.env` file in the root with the following:
 
-MONGO_URI=your-mongodb-connection-string
-FRONT_BASE_URL=http://localhost:3000
+- MONGO_URI=your-mongodb-connection-string
+- FRONT_BASE_URL=http://localhost:3000
 
 ---
 
@@ -113,5 +112,7 @@ Dev mode with nodemon
 ---
 
 ## 👨‍💻 Author
-Fares Mohamed
-GitHub: @fares12358
+- Fares Mohamed
+- GitHub: @fares12358
+- linkdIn [https://www.linkedin.com/in/fares-mohamed-74980a241/]
+- portfilio [https://fares-portfolio.vercel.app/]
