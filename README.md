@@ -114,5 +114,5 @@ Dev mode with nodemon
 ## 👨‍💻 Author
 - Fares Mohamed
 - GitHub: @fares12358
-- linkdIn [https://www.linkedin.com/in/fares-mohamed-74980a241/]
-- portfilio [https://fares-portfolio.vercel.app/]
+- LinkedIn [https://www.linkedin.com/in/fares-mohamed-74980a241/]
+- Portfolio [https://fares-portfolio.vercel.app/]
