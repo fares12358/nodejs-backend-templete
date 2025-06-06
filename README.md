@@ -23,7 +23,7 @@ This template is continuously maintained and released in versions. Each version 
 | Version  | Features Included                                                                   |
 |----------|-------------------------------------------------------------------------------------|
 | v1.0.0   | ✅ Express server<br>✅ MongoDB connection<br>✅ `.env` support<br>✅ CORS config |
-| v1.0.1   | 🔼 Adds authentication (JWT-based login/register)<br>🔼 Centralized error handling |
+| v1.0.1 | 🔼 Adds email sending feature with Nodemailer<br>🔼 Professional reusable HTML email templates<br>🔼 Updated utils folder with sendEmail.js and emailTemplates |
 | v1.0.2   | 🔼 Adds file uploads using `multer`<br>🔼 Validations using `express-validator`    |
 
 ---
@@ -108,6 +108,61 @@ Environment variable support via .env
 Predefined project structure (controllers, models, routes, etc.)
 
 Dev mode with nodemon
+
+---
+
+## 🚀 Version
+
+**v1.0.1**
+
+---
+
+## 📦 Dependencies Used
+
+- **express** – Web framework for Node.js 
+- **mongoose** – ODM for MongoDB
+- **dotenv** – Load environment variables
+- **cors** – Cross-Origin Resource Sharing setup
+- **nodemon** – Auto-reload for development
+- **nodemailer** – Send emails with Node.js using SMTP or third-party services   
+
+---
+
+## 📁 Folder Structure
+
+src/<br>
+├── config/<br>
+│   └── db.js                # MongoDB connection<br>
+├── controllers/<br>
+│   └── emailController.js   # Example controller using Nodemailer<br>
+├── middleware/<br>
+├── models/<br>
+├── routes/<br>
+├── utils/<br>
+│   ├── sendEmail.js         # Email function using Nodemailer<br>
+│   └── emailTemplates/<br>
+│       └── welcomeTemplate.js # HTML template for emails<br>
+└── server.js<br>
+.env                         # Environment variables<br>
+
+---
+
+## ⚙️ Environment Setup
+
+Create a `.env` file in the root with the following:
+
+- EMAIL_USER=your_email@gmail.com
+- EMAIL_PASS=your_email_app_password
+
+---
+
+## 🔥 v1.0.1 Features
+
+- ✅ Nodemailer integration for sending emails
+- ✅ Professional HTML email template (welcome message)
+- ✅ `/utils/emailTemplates/welcomeTemplate.js` for reusable email formatting
+- ✅ `.env` support for email credentials (`EMAIL_USER`, `EMAIL_PASS`)
+- ✅ Example controller to send welcome emails
 
 ---
 
