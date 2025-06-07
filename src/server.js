@@ -1,8 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import User from './models/Users.js';
 import connectDB from './config/db.js';
 import cors from 'cors';
+import AuthRoutes from './routes/AuthRoutes.js';
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -15,14 +15,14 @@ app.use(cors({
 dotenv.config();
 // Connect to MongoDB
 connectDB();
+
 // Routes
+
+// Auth routes
+app.use('/api/auth', AuthRoutes);
+
 app.get('/', (req, res) => {
   res.send('Hello, Modular Backend!');
-});
-
-app.get('/api/users', async (req, res) => {
-  const users = await User.find();
-  res.json(users);
 });
 
 app.listen(PORT, () => {

@@ -24,7 +24,8 @@ This template is continuously maintained and released in versions. Each version 
 |----------|-------------------------------------------------------------------------------------|
 | v1.0.0   | ✅ Express server<br>✅ MongoDB connection<br>✅ `.env` support<br>✅ CORS config |
 | v1.0.1 | 🔼 Adds email sending feature with Nodemailer<br>🔼 Professional reusable HTML email templates<br>🔼 Updated utils folder with sendEmail.js and emailTemplates |
-| v1.0.2   | 🔼 Adds file uploads using `multer`<br>🔼 Validations using `express-validator`    |
+| v1.0.2 | 🔐 Adds full user authentication system with JWT and refresh tokens<br>📧 Implements OTP-based password reset via email using Nodemailer<br>🛡️ Stores and updates tokens securely in MongoDB |
+
 
 ---
 
@@ -155,14 +156,116 @@ Create a `.env` file in the root with the following:
 - EMAIL_PASS=your_email_app_password
 
 ---
+---
 
-## 🔥 v1.0.1 Features
+## 🚀 Version
 
-- ✅ Nodemailer integration for sending emails
-- ✅ Professional HTML email template (welcome message)
-- ✅ `/utils/emailTemplates/welcomeTemplate.js` for reusable email formatting
-- ✅ `.env` support for email credentials (`EMAIL_USER`, `EMAIL_PASS`)
-- ✅ Example controller to send welcome emails
+**v1.0.2**
+
+---
+
+## 📦 Dependencies Used
+
+- **express** – Web framework for Node.js  
+- **mongoose** – ODM for MongoDB  
+- **bcrypt** – Secure password hashing  
+- **jsonwebtoken** – Token generation and validation  
+- **dotenv** – Load environment variables  
+- **cors** – Cross-Origin Resource Sharing setup  
+- **nodemailer** – Send emails via SMTP (Gmail App Password)  
+- **nodemon** – Auto-reload during development  
+
+---
+
+## 📁 Folder Structure
+
+src/  <br>
+├── config/  <br>
+│   └── db.js                        # MongoDB connection setup  <br>
+├── controllers/  <br>
+│   └── authController.js            # Register, login, refresh, forgot/reset  <br>
+├── middleware/  <br>
+│   └── authMiddleware.js            # JWT verification  <br>
+├── models/  <br>
+│   └── User.js                      # User schema with token support  <br>
+├── routes/  <br>
+│   └── authRoutes.js                # All auth-related routes  <br>
+├── utils/  <br>
+│   ├── sendEmail.js                 # Nodemailer reusable function  <br>
+│   └── otpStore.js                  # In-memory OTP manager  <br>
+│   └── emailTemplates/  <br>
+│       └── otpTemplate.js           # HTML template for OTP emails<br>
+└── server.js  <br>
+
+.env                                 # Environment variables
+
+---
+
+## ⚙️ Environment Setup
+
+Create a `.env` file in the root with the following keys:
+
+- PORT=5000
+- MONGODB_URI=mongodb://localhost:27017/auth-db
+- JWT_SECRET=your_jwt_secret_key
+- REFRESH_TOKEN_SECRET=your_refresh_secret
+- EMAIL_USER=your_email@gmail.com
+- EMAIL_PASS=your_gmail_app_password
+
+---
+🔐 v1.0.2 Features
+- ✅ Register: Create user with hashed password & JWT
+
+- ✅ Login: Authenticate with email & password, issue new JWT
+
+- ✅ Token Storage: JWT is stored in DB on register/login
+
+- ✅ Refresh Token: Generate new access token via refresh endpoint
+
+- ✅ Logout: Clear stored JWT token from DB
+
+- ✅ Forgot Password: Send OTP to registered email
+
+- ✅ Reset Password: Reset password after OTP verification
+
+- ✅ OTP Expiry: OTPs expire in 10 minutes for added security
+
+- ✅ HTML Email Templates: Reusable and professional OTP formatting
+
+- ✅ Email via Gmail SMTP: Sends mail securely using Gmail App Password
+
+---
+
+📌 Notes
+- Tokens are issued using JWT and stored in DB (User.token)
+
+- OTPs are stored temporarily in memory via a helper object
+
+- Passwords are hashed with bcrypt using 10 salt rounds
+
+- Use Gmail App Passwords for EMAIL_PASS — not your actual Gmail password
+- 🔗 Set up Gmail App Password
+
+---
+
+### 🔐 Authentication Endpoints
+
+| Method | Endpoint                   | Description                          | Auth Required |
+|--------|----------------------------|--------------------------------------|---------------|
+| POST   | `/api/auth/register`       | Register a new user                  | ❌            |
+| POST   | `/api/auth/login`          | Login user and get tokens            | ❌            |
+| POST   | `/api/auth/refresh-token`  | Get new access token using refresh   | ✅ (refresh)  |
+| POST   | `/api/auth/logout`         | Logout user and clear token          | ✅            |
+
+---
+
+### 🔁 Password Reset (OTP) Endpoints
+
+| Method | Endpoint                          | Description                                | Auth Required |
+|--------|-----------------------------------|--------------------------------------------|---------------|
+| POST   | `/api/auth/forgot-password`       | Send OTP to user's email                   | ❌            |
+| POST   | `/api/auth/verify-otp`            | Verify OTP code                            | ❌            |
+| POST   | `/api/auth/reset-password`        | Reset password after OTP verification      | ❌            |
 
 ---
 
