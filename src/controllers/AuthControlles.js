@@ -141,5 +141,28 @@ export const resetPassword = async (req, res) => {
     }
 };
 
+export const logoutUser = async (req, res) => {
+  try {
+    const { refreshToken } = req.body;
+
+    if (!refreshToken) {
+      return res.status(400).json({ message: 'Refresh token required' });
+    }
+
+    // Assuming you store refresh tokens in DB per user
+    const user = await User.findOne({ refreshToken });
+    if (!user) {
+      return res.status(403).json({ message: 'Invalid refresh token' });
+    }
+
+    // Clear refresh token in DB
+    user.refreshToken = null;
+    await user.save();
+
+    res.status(200).json({ message: 'Logout successful' });
+  } catch (error) {
+    res.status(500).json({ message: 'Logout error', error: error.message });
+  }
+};
 
   
